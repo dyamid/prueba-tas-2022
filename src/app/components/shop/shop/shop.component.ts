@@ -15,6 +15,7 @@ export class ShopComponent implements OnInit {
   public productostemp: Array<any> = []
   public productostemp2: Array<any> = []
   public categorias: Array<any> = []
+  public shopingcar: Array<any> = []
   public priceGroup: Array<any> = [
     {
       id: 1,
@@ -73,7 +74,7 @@ export class ShopComponent implements OnInit {
   }
 
   filter() {
- 
+
     const cat = (this.datasearch.get("categories")?.value) ? this.datasearch.get("categories")?.value : null
     const price = (this.datasearch.get("price")?.value) ? this.datasearch.get("price")?.value : null
 
@@ -98,5 +99,14 @@ export class ShopComponent implements OnInit {
       this.productos.sort(function (a, b) { return a.price - b.price });
     }
 
+  }
+
+  addCart(prod: any) {
+    this.shopingcar.push(prod)
+  }
+
+  restCart(i: any){
+    
+    this.shopingcar.splice(0,i+1)
   }
 }

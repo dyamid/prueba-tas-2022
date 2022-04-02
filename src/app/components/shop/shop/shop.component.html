@@ -1,13 +1,55 @@
 <div class="prodFather">
-    <div class="row p-0 m-0">
+    <div class="row p-0 m-0 mt-5">
         <form [formGroup]="datasearch">
             <div class="row p-0 m-0 p-3">
                 <div class="col-12 col-md-3">
                     <label for="exampleInputEmail1" class="form-label">Buscar Productos</label>
                 </div>
-                <div class="col-12 col-md-9">
+                <div class="col-12 col-md-7">
                     <input type="text" formControlName="search" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
+                </div>
+                <div class="col-12 col-md-2">
+                    <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Cart
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{shopingcar.length}}
+                            <span class="visually-hidden">carrito</span>
+                        </span>
+                    </button>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content mt-5">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div *ngFor="let producto of shopingcar; let i=index" class="col-12">
+                                        <div class="card">
+                                            <div class="card-body"> 
+                                                <h5 class="card-title">{{producto.id}} {{producto.name}}</h5>
+                                                <p class="card-text">{{producto.description}}</p>
+                                                <p class="card-text">{{producto.price}}</p>
+                                                <button class="btn btn-primary" (click)="restCart(i)">Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -27,11 +69,11 @@
                         <option [value]="item.id" *ngFor="let item of priceGroup">{{item.name}}</option>
                     </select>
                 </div>
-                <div class="col-12 col-md-2">                    
+                <div class="col-12 col-md-2">
                     <button type="button" class="btn btn-primary" (click)="clear()">Limpiar</button>
                 </div>
 
-        
+
             </div>
         </form>
         <div *ngFor="let producto of productos" class="col-sm-3">
@@ -44,8 +86,8 @@
 
                     <h5 class="card-title">{{producto.id}} {{producto.name}}</h5>
                     <p class="card-text">{{producto.description}}</p>
-                    <p class="card-text">{{producto.categories}}</p>
-                    <a href="#" class="btn btn-primary">{{producto.price}}</a>
+                    <p class="card-text">{{producto.price}}</p>
+                    <button class="btn btn-primary" (click)="addCart(producto)">Agregar a carrito</button>
                 </div>
             </div>
         </div>
