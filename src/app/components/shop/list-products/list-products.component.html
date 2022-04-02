@@ -1,0 +1,17 @@
+<div class="row">
+    <div *ngFor="let producto of productos" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+        <img src={{producto.img}} class="img-fluid" alt="...">
+        <img src="./assets/imagenes/1.webp" class="img-fluid" alt="...">
+        
+          <h5 class="card-title">{{producto.id}}  {{producto.name}}</h5>
+          <p class="card-text">{{producto.description}}</p>
+          <p class="card-text">{{producto.categories}}</p>
+          <a href="#" class="btn btn-primary">{{producto.price}}</a>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+

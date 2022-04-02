@@ -1,0 +1,10 @@
+.prodFather{
+    height: 100% !important;
+    overflow-y: scroll;
+}
+.imgFather{
+    text-align: center;
+}
+.img-fluid{
+    height: 200px !important;   
+}

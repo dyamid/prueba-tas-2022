@@ -1,0 +1,34 @@
+.bodyFather {
+    height: 100vh !important;
+}
+
+.bodyNavbar {
+    background-color: #2E85C5;
+    height: 10%;
+    width: 100%;
+}
+
+.bodyChildren {
+    height: 80% !important;
+    width: 100%;
+}
+
+.bodyFooter {
+    background-color: #1A2B35;
+    color: white;
+    height: 10%;
+    width: 100%;
+}
+
+.active {
+    background-color: #ccc;
+}
+
+.active a {
+    color: green;
+}
+
+.superPosition{
+    z-index: 9999 !important;
+}
+

@@ -1,1 +1,53 @@
-<p>shop works!</p>
+<div class="prodFather">
+    <div class="row p-0 m-0">
+        <form [formGroup]="datasearch">
+            <div class="row p-0 m-0 p-3">
+                <div class="col-12 col-md-3">
+                    <label for="exampleInputEmail1" class="form-label">Buscar Productos</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" formControlName="search" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <label for="exampleInputEmail1" class="form-label">Categorias</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <select class="form-select" formControlName="categories" aria-label="Default select example">
+                        <option [value]="item.categori_id" *ngFor="let item of categorias">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">
+                    <label for="exampleInputEmail1" class="form-label">Precios</label>
+                </div>
+                <div class="col-12 col-md-3">
+                    <select class="form-select" formControlName="price" aria-label="Default select example">
+                        <option [value]="item.id" *ngFor="let item of priceGroup">{{item.name}}</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-2">                    
+                    <button type="button" class="btn btn-primary" (click)="clear()">Limpiar</button>
+                </div>
+
+        
+            </div>
+        </form>
+        <div *ngFor="let producto of productos" class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <!-- <img src={{producto.img}} class="img-fluid">  Ruta no funcional del get -->
+                    <div class="imgFather">
+                        <img src="../../../../assets/images/1.webp" class="img-fluid" alt="...">
+                    </div>
+
+                    <h5 class="card-title">{{producto.id}} {{producto.name}}</h5>
+                    <p class="card-text">{{producto.description}}</p>
+                    <p class="card-text">{{producto.categories}}</p>
+                    <a href="#" class="btn btn-primary">{{producto.price}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

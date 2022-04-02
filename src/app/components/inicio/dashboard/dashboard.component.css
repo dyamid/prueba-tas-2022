@@ -1,0 +1,21 @@
+.bodyContainerDashboard {
+    height: 100% !important;
+    width: 100% !important;
+    background-color:#2E85C5;
+}
+
+.centrador {
+    
+  
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+} 
+
+.imagen {
+  
+    width: 100%;  
+    
+} 
