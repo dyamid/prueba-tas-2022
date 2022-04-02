@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-  { path: '', loadChildren: () => import('./components/inicio/inicio.module').then(m => m.InicioModule) },
+  { path: 'dashboard', loadChildren: () => import('./components/inicio/inicio.module').then(m => m.InicioModule) },
   { path: 'shop', loadChildren: () => import('./components/shop/shop.module').then(m => m.ShopModule) },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'dashboard' }
 
 ];
 
